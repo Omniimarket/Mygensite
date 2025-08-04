@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles for Inter font and basic layout */
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Ad Placeholder Styling - consistent across pages */
+.ad-placeholder {
+    background-color: #1f2937; /* Dark gray for ads */
+    border: 1px dashed #4b5563;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #9ca3af;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Generator Card hover effects - consistent across pages */
+.generator-card {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+.generator-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+}
