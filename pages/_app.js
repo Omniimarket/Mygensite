@@ -1,5 +1,6 @@
 import '../styles/globals.css'; // This line is crucial!
 import Head from 'next/head'; // Import Head for global meta tags
+import Script from 'next/script'; // Import Script for external scripts
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -11,6 +12,26 @@ function MyApp({ Component, pageProps }) {
         {/* AdSense Auto Ads Script - Place this here for global inclusion */}
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_ADSENSE_ID" crossorigin="anonymous"></script>
       </Head>
+
+      {/* Google Analytics (gtag.js) - External Script */}
+      <Script
+        strategy="afterInteractive" // Loads after the page is interactive
+        src="https://www.googletagmanager.com/gtag/js?id=G-QV5VXW300T"
+      />
+      {/* Google Analytics (gtag.js) - Inline Configuration Script */}
+      <Script
+        id="google-analytics-init" // Unique ID for this inline script
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-QV5VXW300T');
+          `,
+        }}
+      />
+
       <Component {...pageProps} />
     </>
   );
