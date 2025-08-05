@@ -1,7 +1,7 @@
 // pages/api/generate.js
 
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import rateLimit from 'express-rate-limit'; // Import the rate limit library
+import rateLimit from 'express-rate-limit';
 
 // Initialize the Google Generative AI client
 const API_KEY = process.env.GEMINI_API_KEY;
@@ -9,17 +9,20 @@ const API_KEY = process.env.GEMINI_API_KEY;
 if (!API_KEY) {
   console.error("CRITICAL ERROR: GEMINI_API_KEY environment variable is NOT set.");
   console.error("Please ensure you have a .env.local file in your project root with: GEMINI_API_KEY=YOUR_ACTUAL_API_KEY");
+  // In a production environment, you might want to exit the process or throw a more graceful error.
+  // For development, throwing an error here stops the server if the key is missing.
   throw new Error("GEMINI_API_KEY environment variable is not set. API route cannot function.");
 } else {
   console.log("SUCCESS: Gemini API Key loaded (first 5 chars):", API_KEY.substring(0, 5) + '...');
 }
 
 const genAI = new GoogleGenerativeAI(API_KEY);
+const geminiModel = genAI.getGenerativeModel({ model: "gemini-2.5-flash-preview-05-20" });
 
 // Define the rate limiter middleware
 // This will allow 10 requests per IP address within a 30-minute window.
 const limiter = rateLimit({
-  windowMs: 30 * 60 * 1000, // 30 minutes (changed from 15 minutes)
+  windowMs: 30 * 60 * 1000, // 30 minutes
   max: 10, // Limit each IP to 10 requests per windowMs
   message: {
     error: "Too many requests from this IP, please try again after 30 minutes."
@@ -41,11 +44,34 @@ const applyRateLimit = (req, res) =>
     });
   });
 
-// Define the handler for different generator types
-const generateContent = async (type, prompt) => {
-  const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash-preview-05-20" });
+// The main Next.js API route handler
+export default async function handler(req, res) {
+  // Apply rate limiting first
+  try {
+    await applyRateLimit(req, res);
+  } catch (error) {
+    // The error object from rateLimit contains the message
+    return res.status(429).json(error.message);
+  }
 
-  let fullPrompt = "";
+  // Ensure the request method is POST
+  if (req.method !== 'POST') {
+    return res.status(405).json({ message: 'Method Not Allowed' });
+  }
+
+  const { prompt, type } = req.body;
+
+  // Basic validation for prompt and type
+  if (!prompt || typeof prompt !== 'string' || prompt.trim().length === 0) {
+    return res.status(400).json({ message: 'Prompt is required and must be a non-empty string.' });
+  }
+  if (!type || typeof type !== 'string' || type.trim().length === 0) {
+    return res.status(400).json({ message: 'Generator type is required.' });
+  }
+
+  let fullPrompt = ""; // Use fullPrompt consistently
+
+  // Construct the prompt based on the generator type
   switch (type) {
     case 'business-name':
       fullPrompt = `Generate 5 unique and catchy business names based on the following description: "${prompt}". Provide only the names, one per line.`;
@@ -237,7 +263,7 @@ const generateContent = async (type, prompt) => {
       fullPrompt = `Generate 5 anime-style names for a character described as: "${prompt}". Provide only the names, one per line.`;
       break;
     case 'story-title':
-      fullPrompt = `Generate 5 compelling story titles for a story described as: "${prompt}". Provide only the titles, one per line.`;
+      fullPrompt = `Generate 5 captivating story titles for a story described as: "${prompt}". Provide only the titles, one per line.`;
       break;
     case 'song-title':
       fullPrompt = `Generate 5 creative song titles for a song described as: "${prompt}". Provide only the titles, one per line.`;
@@ -327,30 +353,60 @@ const generateContent = async (type, prompt) => {
       fullPrompt = `Generate 5 cool Fortnite names for a player with the playstyle/skins: "${prompt}". Provide only the names, one per line.`;
       break;
     case 'call-of-duty-name':
-      fullPrompt = `Generate 5 intense Call of Duty names for a player with the playstyle/weapons: "${prompt}". Provide only the names, one per line.`;
+      fullPrompt = `Generate 5 tactical Call of Duty names for a player with the playstyle/weapons: "${prompt}". Provide only the names, one per line.`;
       break;
     case 'pubg-name':
       fullPrompt = `Generate 5 cool PUBG names for a player with the strategy/gear: "${prompt}". Provide only the names, one per line.`;
       break;
-    case 'default-content':
-      fullPrompt = `Generate content based on the request: "${prompt}".`;
+    case 'random-password':
+      fullPrompt = `Generate 5 strong, secure, and unique passwords that are at least 12 characters long and include uppercase, lowercase, numbers, and symbols. Context: "${prompt}".`;
+      break;
+    case 'powerball':
+      fullPrompt = `Generate 5 sets of Powerball numbers. Each set must have 5 unique numbers from 1-69 and 1 Powerball number from 1-26.`;
+      break;
+    case 'mega-millions':
+      fullPrompt = `Generate 5 sets of Mega Millions numbers. Each set must have 5 unique numbers from 1-70 and 1 Mega Ball number from 1-25.`;
+      break;
+    case 'pick-5':
+      fullPrompt = `Generate 5 sets of Pick 5 lottery numbers. Each set must have 5 unique numbers from 1-39.`;
+      break;
+    case 'fantasy-5':
+      fullPrompt = `Generate 5 sets of Fantasy 5 lottery numbers. Each set must have 5 unique numbers from 1-36.`;
+      break;
+    case 'random-letter':
+      fullPrompt = `Generate 5 random letters of the alphabet.`;
+      break;
+    case 'random-date':
+      fullPrompt = `Generate 5 random dates in YYYY-MM-DD format.`;
+      break;
+    case 'random-time':
+      fullPrompt = `Generate 5 random times in HH:MM AM/PM format.`;
+      break;
+    case 'character-backstory':
+      fullPrompt = `Generate a short character backstory for a character described as: "${prompt}".`;
+      break;
+    case 'plot':
+      fullPrompt = `Generate a simple plot idea for a story about: "${prompt}".`;
+      break;
+    case 'story-idea':
+      fullPrompt = `Generate 3 unique story ideas based on: "${prompt}".`;
+      break;
+    case 'writing-prompt':
+      fullPrompt = `Generate 3 creative writing prompts based on: "${prompt}".`;
       break;
     default:
       console.error(`Error: Invalid generator type '${type}' in switch case.`);
       return res.status(400).json({ error: 'Invalid generator type.' });
   }
 
-  console.log("Model Prompt generated:", modelPrompt);
-
-  if (!modelPrompt) {
-    console.error("Error: Model prompt is empty for the given type.");
+  if (!fullPrompt) { // Check if the prompt was actually generated
+    console.error("Error: Full prompt is empty for the given type.");
     return res.status(400).json({ error: 'No prompt generated for the given type.' });
   }
 
   try {
     console.log("Attempting to call Gemini API with model: gemini-2.5-flash-preview-05-20");
-    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash-preview-05-20" });
-    const result = await model.generateContent(modelPrompt);
+    const result = await geminiModel.generateContent(fullPrompt); // Use fullPrompt here
     const response = await result.response;
     const text = response.text();
     console.log("Gemini API call successful. Generated text length:", text.length);

@@ -6,7 +6,8 @@ import SubFooter from '../components/SubFooter'; // Your legal/about links foote
 
 // You would likely fetch these from an API or a local data file in a real app
 const featuredGenerators = [
-  { name: "Business Name Generator", icon: "💡", color: "blue", href: "/business-name-generator", desc: "Find the perfect name for your startup or company with our smart AI." },
+  // Inside the featuredGenerators array in pages/index.js
+  { name: "Domain Name", icon: "🌐", color: "blue", href: "/domain-name-generator", desc: "Find the perfect domain name for your website or business." },
   { name: "Company Name Generator", icon: "🏢", color: "green", href: "/company-name-generator", desc: "Brainstorm professional and unique names for your new company." },
   { name: "Song Title Generator", icon: "🎵", color: "purple", href: "/song-title-generator", desc: "Discover catchy and memorable titles to inspire your next musical hit." },
   { name: "Random Password Generator", icon: "🔑", color: "yellow", href: "/random-password-generator", desc: "Create strong, secure, and unique passwords instantly." },
