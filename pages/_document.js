@@ -10,6 +10,7 @@ export default function Document() {
         <link rel="icon" href="/favicon.png" type="image/png" />
           {/* Your AdMaven meta tag goes here */}
         <meta name='admaven-placement' content='BqdU4rjaG' />
+        <meta name="google-adsense-account" content="ca-pub-3309373852024886"></meta>
         {/* Other meta tags, favicons, or external scripts can go here */}
      {/* If you have other favicon sizes/types for broader compatibility, you can add them here, e.g.: */}
         {/* <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" /> */}
