@@ -38,7 +38,7 @@ const generatorDetails = {
   },
   'random-name-generator': {
     title: 'Random Name Generator',
-    description: 'Need a name fast? Generate random names for characters, pets, or any other purpose. Simple, quick, and diverse!',
+    description: 'Need a name fast? Generate random name for characters, pets, or any other purpose. Simple, quick, and diverse!',
     keywords: 'random name, name generator, character name, pet name, AI random name',
     promptLabel: 'Specify type or origin (optional):',
     placeholder: 'e.g., male, female, common, unique, specific origin like "Japanese"',
@@ -1147,6 +1147,7 @@ const GeneratorPage = () => {
         <title>{currentGenerator.title} - AI Generator Hub</title>
         <meta name="description" content={currentGenerator.description} />
         <meta name="keywords" content={currentGenerator.keywords} />
+        <link rel="canonical" href={`https://www.marketproedge.com/${generatorType}`} />
         {/* Favicon and AdSense handled in _app.js */}
       </Head>
 
