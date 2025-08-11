@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Link from 'next/link';
+// No need for useRouter for generatorType directly in the component,
+// as it will be passed via props now.
 
 // Import your actual components from the components folder
 import Header from '../components/Header';
@@ -11,6 +12,7 @@ import LoadingSpinner from '../components/LoadingSpinner';
 
 
 // This data would ideally come from a central source or API
+// Keeping it here for demonstration, but in a large app, it might be in a separate file
 const generatorDetails = {
   'business-name-generator': {
     title: 'Business Name Generator',
@@ -38,7 +40,7 @@ const generatorDetails = {
   },
   'random-name-generator': {
     title: 'Random Name Generator',
-    description: 'Need a name fast? Generate random name for characters, pets, or any other purpose. Simple, quick, and diverse!',
+    description: 'Need a name fast? Generate random names for characters, pets, or any other purpose. Simple, quick, and diverse!',
     keywords: 'random name, name generator, character name, pet name, AI random name',
     promptLabel: 'Specify type or origin (optional):',
     placeholder: 'e.g., male, female, common, unique, specific origin like "Japanese"',
@@ -647,7 +649,7 @@ const generatorDetails = {
   'secure-password-generator': {
     title: 'Secure Password Generator',
     description: 'Generate highly secure and complex passwords to protect your online accounts. Stay safe with strong credentials!',
-    keywords: 'secure password, strong password, password security, AI password generator',
+    keywords: 'secure password, strong password, password generator, AI password generator',
     promptLabel: 'Specify desired length and character types (e.g., 16 characters, include numbers, symbols, uppercase):',
     placeholder: 'e.g., "16 characters, all types", "8 characters, letters and numbers"',
     apiType: 'secure-password'
@@ -849,6 +851,7 @@ const generatorDetails = {
 };
 
 const relatedGeneratorsData = {
+  // ... (your existing relatedGeneratorsData) ...
   'business-name-generator': [
     { name: "Company Slogan", href: "/slogan-generator" },
     { name: "Brand Name", href: "/brand-name-generator" },
@@ -933,26 +936,71 @@ const relatedGeneratorsData = {
   ]
 };
 
+// ================================================================
+// Next.js SSG Functions: getStaticPaths and getStaticProps
+// These ensure the page is pre-rendered with SEO-friendly content
+// ================================================================
 
-const GeneratorPage = () => {
-  const router = useRouter();
-  const { generatorType } = router.query; // Get the dynamic part of the URL
+// getStaticPaths: Tells Next.js which dynamic paths to pre-render at build time
+export async function getStaticPaths() {
+  const paths = Object.keys(generatorDetails).map((type) => ({
+    params: { generatorType: type },
+  }));
+
+  return {
+    paths,
+    fallback: false, // Set to false to return 404 for paths not defined.
+                     // Set to 'blocking' or true for large number of pages
+                     // if you want them generated on first request.
+  };
+}
+
+// getStaticProps: Fetches the data for each page at build time
+export async function getStaticProps({ params }) {
+  const { generatorType } = params;
+  const currentGenerator = generatorDetails[generatorType] || generatorDetails['default-generator'];
+  const relatedGenerators = relatedGeneratorsData[generatorType] || relatedGeneratorsData['default-generator'];
+
+  if (!currentGenerator) {
+    // Should ideally not happen if fallback is false and generatorDetails is complete
+    return {
+      notFound: true,
+    };
+  }
+
+  return {
+    props: {
+      currentGenerator,
+      relatedGenerators,
+      generatorType // Pass generatorType explicitly for canonical URL
+    },
+    // revalidate: 3600, // Optional: ISR - Re-generate page every 1 hour (3600 seconds)
+  };
+}
+
+
+const GeneratorPage = ({ currentGenerator, relatedGenerators, generatorType }) => {
+  // No need for useRouter().query.generatorType here, as it comes from props
+  // const { generatorType } = router.query; // REMOVE THIS LINE
 
   const [promptInput, setPromptInput] = useState('');
   const [generatedResult, setGeneratedResult] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
 
-  const currentGenerator = generatorDetails[generatorType] || generatorDetails['default-generator'];
-  const relatedGenerators = relatedGeneratorsData[generatorType] || relatedGeneratorsData['default-generator'];
+  // currentGenerator and relatedGenerators are now received as props
+  // const currentGenerator = generatorDetails[generatorType] || generatorDetails['default-generator']; // REMOVE OR COMMENT OUT
+  // const relatedGenerators = relatedGeneratorsData[generatorType] || relatedGeneratorsData['default-generator']; // REMOVE OR COMMENT OUT
+
 
   // Clear results and input when generatorType changes
+  // This useEffect will still run when Next.js navigates between SSG pages
   useEffect(() => {
     setPromptInput('');
     setGeneratedResult('');
     setError('');
     setIsLoading(false);
-  }, [generatorType]);
+  }, [generatorType]); // Keep generatorType in dependency array, as the prop changes
 
 
   const handleGenerate = async (e) => {
@@ -1133,22 +1181,21 @@ const GeneratorPage = () => {
     }
   };
 
-  if (!router.isReady) {
-    return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-gray-900 text-gray-100">
-        <LoadingSpinner message="Loading generator..." />
-      </div>
-    );
-  }
+  // If you're using fallback: true or 'blocking', you might need a loading state here
+  // if (router.isFallback) {
+  //   return <LoadingSpinner message="Loading generator..." />;
+  // }
+
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-900 text-gray-100">
       <Head>
+        {/* These props are now available directly from getStaticProps */}
         <title>{currentGenerator.title} - AI Generator Hub</title>
         <meta name="description" content={currentGenerator.description} />
         <meta name="keywords" content={currentGenerator.keywords} />
+        {/* CORRECTED CANONICAL TAG - will be pre-rendered */}
         <link rel="canonical" href={`https://www.marketproedge.com/${generatorType}`} />
-        {/* Favicon and AdSense handled in _app.js */}
       </Head>
 
       <Header />
@@ -1172,9 +1219,9 @@ const GeneratorPage = () => {
               id="promptInput"
               className="w-full px-5 py-3 border border-blue-500 bg-gray-700 text-gray-100 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 text-base resize-y min-h-[100px] placeholder-gray-400"
               placeholder={currentGenerator.placeholder}
+              required={currentGenerator.apiType !== 'random-color' && currentGenerator.apiType !== 'random-password' && currentGenerator.apiType !== 'random-letter' && currentGenerator.apiType !== 'random-date' && currentGenerator.apiType !== 'random-time' && currentGenerator.apiType !== 'fake-email' && currentGenerator.apiType !== 'powerball' && currentGenerator.apiType !== 'mega-millions' && currentGenerator.apiType !== 'pick-5' && currentGenerator.apiType !== 'fantasy-5'} // Only require input for Gemini-based generators
               value={promptInput}
               onChange={(e) => setPromptInput(e.target.value)}
-              required={currentGenerator.apiType !== 'random-color' && currentGenerator.apiType !== 'random-password' && currentGenerator.apiType !== 'random-letter' && currentGenerator.apiType !== 'random-date' && currentGenerator.apiType !== 'random-time' && currentGenerator.apiType !== 'fake-email' && currentGenerator.apiType !== 'powerball' && currentGenerator.apiType !== 'mega-millions' && currentGenerator.apiType !== 'pick-5' && currentGenerator.apiType !== 'fantasy-5'} // Only require input for Gemini-based generators
             ></textarea>
             <button
               type="submit"
