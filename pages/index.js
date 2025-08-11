@@ -30,7 +30,7 @@ const HomePage = () => {
   return (
     <div className="min-h-screen flex flex-col bg-gray-900 text-gray-100">
       <Head>
-        <title>AI Generator Hub - Your Source for Creative AI Tools</title>
+        <title>MarketProEdge - Your Source for Creative AI Tools</title>
         <meta name="description" content="Generate unique business names, creative content, catchy slogans, and more with our AI-powered tools. Boost your creativity instantly!" />
         <meta name="keywords" content="AI generator, name generator, content ideas, free tools, Gemini API, business names, slogans, passwords, writing prompts" />
         <link rel="icon" href="/favicon.ico" />
