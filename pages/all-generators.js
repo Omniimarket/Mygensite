@@ -8,7 +8,6 @@ import SubFooter from '../components/SubFooter';
 const allGeneratorsData = {
   "Name Generators": [
     { name: "Business Name", href: "/business-name-generator", description: "Find the perfect name for your business." },
-    { name: "Company Name", href: "/company-name-generator", description: "Brainstorm professional company names." },
     { name: "Brand Name", href: "/brand-name-generator", description: "Develop a strong and memorable brand name." },
     { name: "Shop Name", href: "/shop-name-generator", description: "Find a unique name for your shop." },
     { name: "Product Name", href: "/product-name-generator", description: "Generate creative names for your products." },
@@ -40,25 +39,13 @@ const allGeneratorsData = {
     { name: "YouTube Title", href: "/youtube-title-generator", description: "Generate catchy YouTube video titles." },
   ],
   "Content & Writing Tools": [
-    { name: "Paragraph", href: "/paragraph-generator", description: "Create coherent paragraphs quickly." },
-    { name: "Rap Lyrics", href: "/rap-lyrics-generator", description: "Create creative and rhythmic rap lyrics." },
-    { name: "Poetry", href: "/poetry-generator", description: "Create beautiful and expressive poems." },
     { name: "Lyric", href: "/lyric-generator", description: "Generate emotional song lyrics." },
-    { name: "Rhyme", href: "/rhyme-generator", description: "Find perfect rhyming words." },
-    { name: "Writing Prompt", href: "/writing-prompt-generator", description: "Get inspiring writing prompts." },
-    { name: "Bio", href: "/bio-generator", description: "Create engaging and professional bios." },
-    { name: "Cover Letter", href: "/cover-letter-generator", description: "Generate professional cover letters." },
-    { name: "Character Backstory", href: "/character-backstory-generator", description: "Create detailed character backstories." },
-    { name: "Plot", href: "/plot-generator", description: "Generate creative plot ideas." },
-    { name: "Story Idea", href: "/story-idea-generator", description: "Discover new story ideas." },
-    { name: "Script", href: "/script-generator", description: "Generate short scripts for various purposes." },
     { name: "Quote", href: "/quote-generator", description: "Create inspirational or custom quotes." },
     { name: "Inspirational Quote", href: "/inspirational-quote-generator", description: "Generate uplifting inspirational quotes." },
     { name: "Motivational Quote", href: "/motivational-quote-generator", description: "Find powerful motivational quotes." },
   ],
   "Marketing & Business Tools": [
     { name: "Slogan", href: "/slogan-generator", description: "Craft memorable slogans for your brand." },
-    { name: "Slogan Maker", href: "/slogan-maker", description: "Make catchy and memorable slogans." },
     { name: "Tagline", href: "/tagline-generator", description: "Generate memorable and effective taglines." },
     { name: "Company Slogan", href: "/company-slogan-generator", description: "Generate compelling company slogans." },
     { name: "Hashtag", href: "/hashtag-generator", description: "Find trending hashtags for social media." },
@@ -80,6 +67,8 @@ const allGeneratorsData = {
     { name: "Discord Name", href: "/discord-name-generator", description: "Generate cool Discord names." },
     { name: "Xbox Gamertag", href: "/xbox-gamertag-generator", description: "Find an epic Xbox Gamertag." },
     { name: "Roblox Username", href: "/roblox-username-generator", description: "Generate creative Roblox usernames." },
+    // NEW ENTRY HERE
+    { name: "Roblox Password", href: "/roblox-password-generator", description: "Generate secure and unique passwords specifically for your Roblox account." },
     { name: "Fortnite Name", href: "/fortnite-name-generator", description: "Create cool Fortnite names." },
     { name: "Call of Duty Name", href: "/call-of-duty-name-generator", description: "Generate intense Call of Duty names." },
     { name: "PUBG Name", href: "/pubg-name-generator", description: "Find a cool PUBG name." },
@@ -108,8 +97,6 @@ const allGeneratorsData = {
     { name: "Random Date", href: "/random-date-generator", description: "Get a random date." },
     { name: "Random Time", href: "/random-time-generator", description: "Generate a random time of day." },
     { name: "Fake Email", href: "/fake-email-generator", description: "Generate temporary fake email addresses." },
-    { name: "HTML Code", href: "/html-code-generator", description: "Generate basic HTML code snippets." },
-    { name: "CSS Gradient", href: "/css-gradient-generator", description: "Create beautiful CSS linear and radial gradients." },
   ],
   "Entertainment & Fun": [
     { name: "Meme Text", href: "/meme-text-generator", description: "Create funny text for your memes." },
@@ -195,3 +182,4 @@ export async function getStaticProps() {
 }
 
 export default AllGeneratorsPage;
+

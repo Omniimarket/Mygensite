@@ -30,3 +30,11 @@ body {
     transform: translateY(-5px);
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
 }
+
+ul, ol {
+  list-style: none !important; /* Forcefully removes default bullet points and numbers */
+  padding-left: 0 !important;   /* Forcefully removes default left padding */
+}
+
+/* If you have specific list items within other styled elements that still show markers,
+   you might need more specific selectors, but the above should cover most cases. */

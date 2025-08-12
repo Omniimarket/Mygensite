@@ -4,6 +4,7 @@ module.exports = {
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
+    './content/**/*.{js,ts,jsx,tsx,mdx}', // Ensure this line is present to scan your content directory
   ],
   theme: {
     extend: {
@@ -11,6 +12,9 @@ module.exports = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      },
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'], // Define Inter as the default sans-serif font
       },
     },
   },
@@ -28,5 +32,7 @@ module.exports = {
     'border-blue-700',
     'hover:border-blue-500',
   ],
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'), // <-- This line is crucial!
+  ],
 };
