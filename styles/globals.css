@@ -31,10 +31,21 @@ body {
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
 }
 
-ul, ol {
-  list-style: none; /* This removes bullets/numbers */
-  padding-left: 0;   /* This removes the indentation space */
+/* Custom CSS to force list item styling within Prose */
+.prose ul li,
+.prose ol li {
+    margin: 0 !important;
+    /* Increase left padding to ensure space for bullets/numbers */
+    padding-left: 1.25em !important; /* Adjust this value as needed to move the text right */
+    /* Optionally add space between list items, if desired */
+    margin-bottom: 0.5em !important; /* Adds space below each list item */
+    text-align: left !important; /* Ensures text aligns left */
 }
+
+/* If list-style:none is desired AND you want custom bullets, you'd add: */
+/* .prose ul li { list-style: disc !important; } */
+/* .prose ol li { list-style: decimal !important; } */
+/* But if you want no dots/numbers, keep list-style: none globally removed from ul, ol */
 
 /* If you have specific list items within other styled elements that still show markers,
    you might need more specific selectors, but the above should cover most cases. */
