@@ -31,21 +31,40 @@ body {
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
 }
 
-/* Custom CSS to force list item styling within Prose */
+/* Custom styles for list items and strong tags within the prose content */
+/* This targets list items directly inside ul/ol within the .prose container */
 .prose ul li,
 .prose ol li {
+    /* Reset all external margins to ensure predictable spacing */
     margin: 0 !important;
-    /* Increase left padding to ensure space for bullets/numbers */
-    padding-left: 1.25em !important; /* Adjust this value as needed to move the text right */
-    /* Optionally add space between list items, if desired */
-    margin-bottom: 0.5em !important; /* Adds space below each list item */
-    text-align: left !important; /* Ensures text aligns left */
+
+    /* **CRUCIAL**: Add left padding for the text within the list item. */
+    /* This creates the space where the bullet/number would typically sit, */
+    /* and ensures the text itself isn't pushed to the extreme left. */
+    /* Adjust '1.5em' (e.g., to 2em, 2.5em) if the text still appears too far left. */
+    padding-left: 1.5em !important;
+
+    /* Add vertical space between list items, as you requested */
+    margin-bottom: 1em !important;
+
+    /* Ensure text is always left-aligned within the list item */
+    text-align: left !important;
 }
 
-/* If list-style:none is desired AND you want custom bullets, you'd add: */
-/* .prose ul li { list-style: disc !important; } */
-/* .prose ol li { list-style: decimal !important; } */
-/* But if you want no dots/numbers, keep list-style: none globally removed from ul, ol */
+/* Force strong tags within prose to be inline and left-aligned */
+/* This combats any accidental block-level display or centering */
+.prose strong {
+    display: inline !important; /* Keeps it on the same line as surrounding text */
+    text-align: inherit !important; /* Ensures it inherits text-left from its parent */
+    word-break: break-word !important; /* Helps long words break to prevent overflow */
+}
 
-/* If you have specific list items within other styled elements that still show markers,
-   you might need more specific selectors, but the above should cover most cases. */
+/* Ensure h3 elements are visible and left-aligned within prose */
+.prose h3 {
+    color: var(--tw-prose-headings) !important; /* Ensure it uses the prose heading color */
+    font-size: 1.5em !important; /* Ensure a readable font size */
+    margin-top: 1.5em !important; /* Add space above */
+    margin-bottom: 1em !important; /* Add space below */
+    text-align: left !important; /* Ensure h3 is left-aligned */
+    word-break: break-word !important; /* Prevent h3 content from overflowing */
+}
