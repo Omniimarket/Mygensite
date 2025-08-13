@@ -1337,7 +1337,7 @@ const GeneratorPage = ({ generatorType }) => {
           </h1>
 
           {/* This is the key change for styling the description */}
-          <div className="text-gray-300 mb-8 text-center text-lg leading-relaxed prose dark:prose-invert prose-blue max-w-none">
+          <div className="text-gray-300 mb-8 text-center text-base leading-relaxed prose dark:prose-invert prose-blue mx-auto">
             <div dangerouslySetInnerHTML={{ __html: description }} />
           </div>
 
