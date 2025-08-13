@@ -1340,7 +1340,7 @@ const GeneratorPage = ({ generatorType }) => {
           </h1>
 
           {/* Adjusted font size, maintained centering, text-left for content flow, and ADDED BREAK-WORDS */}
-          <div className="text-gray-300 mb-8 text-left text-base leading-relaxed prose dark:prose-invert prose-blue mx-auto break-words">
+          <div className="text-gray-300 mb-8 text-left text-base leading-relaxed prose dark:prose-invert prose-blue mx-auto max-w-full break-all">
             <div dangerouslySetInnerHTML={{ __html: description }} />
           </div>
 
