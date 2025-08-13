@@ -255,7 +255,7 @@ const generatorContentMap = {
   'meta-description-generator': metaDescriptionContent,
   'keyword-generator': keywordContent,
   'logo-name-generator': logoNameContent,
-  'game-name-generator': gameNameContent, // Corrected: Using gameNameContent, removed duplicate `gamenameContent`
+  'game-name-generator': gameNameContent, // Assuming this is the correct one for game names
   'guild-name-generator': guildNameContent,
   'clan-name-generator': clanNameContent,
   'superhero-name-generator': superheroNameContent,
@@ -374,7 +374,7 @@ const generatorDetails = {
   'rap-lyrics-generator': {
     title: 'Rap Lyrics Generator',
     keywords: 'rap lyrics, hip-hop lyrics, song generator, rhyme generator, AI rap generator',
-    promptLabel: 'Enter keywords or a theme for your rap lyrics:',
+    promptLabel: 'Enter a topic or a theme for your rap lyrics:',
     placeholder: 'e.g., struggle, success, daily life, "about my city"',
     apiType: 'rap-lyrics'
   },
@@ -1308,7 +1308,9 @@ const GeneratorPage = ({ generatorType }) => {
 
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white flex flex-col font-inter">
+    // FIX: Added 'overflow-x-hidden' to the main container to prevent horizontal scrolling issues.
+    // This helps in cases where content might slightly overflow on real devices vs. emulators.
+    <div className="min-h-screen bg-gray-900 text-white flex flex-col font-inter overflow-x-hidden">
       <Head>
         {/* The title here is dynamically set from currentGeneratorDetails.title which is a string. */}
         {/* If you're still seeing the 'array with more than 1 element' warning, double-check that */}
@@ -1325,7 +1327,8 @@ const GeneratorPage = ({ generatorType }) => {
 
       <Header />
 
-      <main className="flex-grow container mx-auto px-4 py-8">
+      {/* FIX: Ensured the main content area also handles potential overflow if its children are too wide. */}
+      <main className="flex-grow container mx-auto px-4 py-8 overflow-x-hidden">
         {/* Ad Placeholder 1 (Top of content ad) */}
         <div className="ad-placeholder h-24 w-full max-w-2xl mx-auto bg-gray-700 border border-blue-600 rounded-lg flex items-center justify-center text-gray-300 text-sm mb-8 shadow-inner">
           [AdSense Ad Unit - Top of Generator]
@@ -1336,8 +1339,8 @@ const GeneratorPage = ({ generatorType }) => {
             {title}
           </h1>
 
-          {/* This is the key change for styling the description */}
-          <div className="text-gray-300 mb-8 text-center text-base leading-relaxed prose dark:prose-invert prose-blue mx-auto">
+          {/* Adjusted font size and maintained centering for block, text-left for content flow */}
+          <div className="text-gray-300 mb-8 text-left text-base leading-relaxed prose dark:prose-invert prose-blue mx-auto">
             <div dangerouslySetInnerHTML={{ __html: description }} />
           </div>
 
