@@ -157,7 +157,7 @@ const generatorContentMap = {
   'book-title-generator': bookTitleContent,
   'paragraph-generator': paragraphContent,
   'slogan-generator': sloganContent,
-  'hashtag-generator': hashtagContent,
+  'hashtag-generator': hashtag:hashtagContent,
   'company-name-generator': companyNameContent,
   'band-name-generator': bandNameContent,
   'character-name-generator': characterNameContent,
@@ -1339,8 +1339,8 @@ const GeneratorPage = ({ generatorType }) => {
             {title}
           </h1>
 
-          {/* Adjusted font size and maintained centering for block, text-left for content flow */}
-          <div className="text-gray-300 mb-8 text-left text-base leading-relaxed prose dark:prose-invert prose-blue mx-auto">
+          {/* Adjusted font size, maintained centering, text-left for content flow, and ADDED BREAK-WORDS */}
+          <div className="text-gray-300 mb-8 text-left text-base leading-relaxed prose dark:prose-invert prose-blue mx-auto break-words">
             <div dangerouslySetInnerHTML={{ __html: description }} />
           </div>
 
