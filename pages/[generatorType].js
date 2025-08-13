@@ -157,7 +157,7 @@ const generatorContentMap = {
   'book-title-generator': bookTitleContent,
   'paragraph-generator': paragraphContent,
   'slogan-generator': sloganContent,
-  'hashtag-generator': hashtag:hashtagContent,
+  'hashtag-generator': hashtagContent,
   'company-name-generator': companyNameContent,
   'band-name-generator': bandNameContent,
   'character-name-generator': characterNameContent,
