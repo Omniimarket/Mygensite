@@ -1328,7 +1328,7 @@ const GeneratorPage = ({ generatorType }) => {
       <Header />
 
       {/* FIX: Ensured the main content area also handles potential overflow if its children are too wide. */}
-      <main className="flex-grow container mx-auto px-4 py-8 overflow-x-hidden">
+      <main className="flex-grow container mx-auto px-4 py-8 overflow-x-hidden w-full">
         {/* Ad Placeholder 1 (Top of content ad) */}
         <div className="ad-placeholder h-24 w-full max-w-2xl mx-auto bg-gray-700 border border-blue-600 rounded-lg flex items-center justify-center text-gray-300 text-sm mb-8 shadow-inner">
           [AdSense Ad Unit - Top of Generator]
@@ -1340,7 +1340,7 @@ const GeneratorPage = ({ generatorType }) => {
           </h1>
 
           {/* Adjusted font size, maintained centering, text-left for content flow, and ADDED BREAK-WORDS */}
-          <div className="text-gray-300 mb-8 text-left text-base leading-relaxed prose dark:prose-invert prose-blue mx-auto max-w-full break-all">
+          <div className="text-gray-300 mb-8 text-left text-base leading-relaxed prose dark:prose-invert prose-blue mx-auto w-full break-all">
             <div dangerouslySetInnerHTML={{ __html: description }} />
           </div>
 
