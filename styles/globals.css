@@ -51,20 +51,27 @@ body {
     text-align: left !important;
 }
 
-/* Force strong tags within prose to be inline and left-aligned */
-/* This combats any accidental block-level display or centering */
-.prose strong {
-    display: inline !important; /* Keeps it on the same line as surrounding text */
-    text-align: inherit !important; /* Ensures it inherits text-left from its parent */
-    word-break: break-word !important; /* Helps long words break to prevent overflow */
-}
+@media (max-width: 768px) {
+  .prose ul,
+  .prose ol {
+    margin-top: 0.25em !important;
+    margin-bottom: 0.25em !important;
+    padding-left: 1.25em !important;
+  }
 
-/* Ensure h3 elements are visible and left-aligned within prose */
-.prose h3 {
-    color: var(--tw-prose-headings) !important; /* Ensure it uses the prose heading color */
-    font-size: 1.5em !important; /* Ensure a readable font size */
-    margin-top: 1.5em !important; /* Add space above */
-    margin-bottom: 1em !important; /* Add space below */
-    text-align: left !important; /* Ensure h3 is left-aligned */
-    word-break: break-word !important; /* Prevent h3 content from overflowing */
+  .prose li {
+    margin-bottom: 0.15em !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Optional: remove extra space if list is first or last child */
+  .prose ul:first-child,
+  .prose ol:first-child {
+    margin-top: 0 !important;
+  }
+
+  .prose ul:last-child,
+  .prose ol:last-child {
+    margin-bottom: 0 !important;
+  }
 }
