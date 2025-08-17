@@ -250,6 +250,9 @@ export default async function handler(req, res) {
     case 'funny-name':
       fullPrompt = `Generate 5 funny names for a character/context described as: "${prompt}". Provide only the names, one per line.`;
       break;
+    case 'workout-plan':
+    fullPrompt = `Create a 7-day workout plan focused on: "${prompt}". Include exercise types, sets, reps, and rest. Keep it practical for home or gym.`;
+    break;
     case 'sci-fi-name':
       fullPrompt = `Generate 5 futuristic sci-fi names for a character/planet/ship based on: "${prompt}". Provide only the names, one per line.`;
       break;
