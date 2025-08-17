@@ -6,11 +6,6 @@
       "permanent": true
     },
     {
-      "source": "/domain-name-generator",
-      "destination": "/generators/domain-name-generator",
-      "permanent": true
-    },
-    {
       "source": "/username-generator",
       "destination": "/generators/username-generator",
       "permanent": true
@@ -26,8 +21,18 @@
       "permanent": true
     },
     {
+      "source": "/random-word-generator",
+      "destination": "/generators/random-word-generator",
+      "permanent": true
+    },
+    {
       "source": "/book-title-generator",
       "destination": "/generators/book-title-generator",
+      "permanent": true
+    },
+    {
+      "source": "/paragraph-generator",
+      "destination": "/generators/paragraph-generator",
       "permanent": true
     },
     {
@@ -56,6 +61,11 @@
       "permanent": true
     },
     {
+      "source": "/rap-lyrics-generator",
+      "destination": "/generators/rap-lyrics-generator",
+      "permanent": true
+    },
+    {
       "source": "/random-password-generator",
       "destination": "/generators/random-password-generator",
       "permanent": true
@@ -74,7 +84,536 @@
       "source": "/team-name-generator",
       "destination": "/generators/team-name-generator",
       "permanent": true
+    },
+    {
+      "source": "/nickname-generator",
+      "destination": "/generators/nickname-generator",
+      "permanent": true
+    },
+    {
+      "source": "/blog-post-idea-generator",
+      "destination": "/generators/blog-post-idea-generator",
+      "permanent": true
+    },
+    {
+      "source": "/youtube-description-generator",
+      "destination": "/generators/youtube-description-generator",
+      "permanent": true
+    },
+    {
+      "source": "/restaurant-name-generator",
+      "destination": "/generators/restaurant-name-generator",
+      "permanent": true
+    },
+    {
+      "source": "/app-name-generator",
+      "destination": "/generators/app-name-generator",
+      "permanent": true
+    },
+    {
+      "source": "/email-subject-line-generator",
+      "destination": "/generators/email-subject-line-generator",
+      "permanent": true
+    },
+    {
+      "source": "/instagram-caption-generator",
+      "destination": "/generators/instagram-caption-generator",
+      "permanent": true
+    },
+    {
+      "source": "/tweet-generator",
+      "destination": "/generators/tweet-generator",
+      "permanent": true
+    },
+    {
+      "source": "/linkedin-headline-generator",
+      "destination": "/generators/linkedin-headline-generator",
+      "permanent": true
+    },
+    {
+      "source": "/business-idea-generator",
+      "destination": "/generators/business-idea-generator",
+      "permanent": true
+    },
+    {
+      "source": "/product-name-generator",
+      "destination": "/generators/product-name-generator",
+      "permanent": true
+    },
+    {
+      "source": "/song-title-generator",
+      "destination": "/generators/song-title-generator",
+      "permanent": true
+    },
+    {
+      "source": "/story-idea-generator",
+      "destination": "/generators/story-idea-generator",
+      "permanent": true
+    },
+    {
+      "source": "/random-fact-generator",
+      "destination": "/generators/random-fact-generator",
+      "permanent": true
+    },
+    {
+      "source": "/joke-generator",
+      "destination": "/generators/joke-generator",
+      "permanent": true
+    },
+    {
+      "source": "/quote-generator",
+      "destination": "/generators/quote-generator",
+      "permanent": true
+    },
+    {
+      "source": "/recipe-generator",
+      "destination": "/generators/recipe-generator",
+      "permanent": true
+    },
+    {
+      "source": "/meal-plan-generator",
+      "destination": "/generators/meal-plan-generator",
+      "permanent": true
+    },
+    {
+      "source": "/workout-plan-generator",
+      "destination": "/generators/workout-plan-generator",
+      "permanent": true
+    },
+    {
+      "source": "/travel-itinerary-generator",
+      "destination": "/generators/travel-itinerary-generator",
+      "permanent": true
+    },
+    {
+      "source": "/gift-idea-generator",
+      "destination": "/generators/gift-idea-generator",
+      "permanent": true
+    },
+    {
+      "source": "/dilemma-resolver",
+      "destination": "/generators/dilemma-resolver",
+      "permanent": true
+    },
+    {
+      "source": "/dream-interpreter",
+      "destination": "/generators/dream-interpreter",
+      "permanent": true
+    },
+    {
+      "source": "/chat-bot",
+      "destination": "/generators/chat-bot",
+      "permanent": true
+    },
+    {
+      "source": "/horoscope-generator",
+      "destination": "/generators/horoscope-generator",
+      "permanent": true
+    },
+    {
+      "source": "/riddle-generator",
+      "destination": "/generators/riddle-generator",
+      "permanent": true
+    },
+    {
+      "source": "/trivia-question-generator",
+      "destination": "/generators/trivia-question-generator",
+      "permanent": true
+    },
+    {
+      "source": "/would-you-rather-generator",
+      "destination": "/generators/would-you-rather-generator",
+      "permanent": true
+    },
+    {
+      "source": "/truth-or-dare-generator",
+      "destination": "/generators/truth-or-dare-generator",
+      "permanent": true
+    },
+    {
+      "source": "/never-have-i-ever-generator",
+      "destination": "/generators/never-have-i-ever-generator",
+      "permanent": true
+    },
+    {
+      "source": "/two-truths-and-a-lie-generator",
+      "destination": "/generators/two-truths-and-a-lie-generator",
+      "permanent": true
+    },
+    {
+      "source": "/mad-libs-generator",
+      "destination": "/generators/mad-libs-generator",
+      "permanent": true
+    },
+    {
+      "source": "/charades-generator",
+      "destination": "/generators/charades-generator",
+      "permanent": true
+    },
+    {
+      "source": "/catchphrase-generator",
+      "destination": "/generators/catchphrase-generator",
+      "permanent": true
+    },
+    {
+      "source": "/news-headline-generator",
+      "destination": "/generators/news-headline-generator",
+      "permanent": true
+    },
+    {
+      "source": "/dialogue-generator",
+      "destination": "/generators/dialogue-generator",
+      "permanent": true
+    },
+    {
+      "source": "/css-gradient-generator",
+      "destination": "/generators/css-gradient-generator",
+      "permanent": true
+    },
+    {
+      "source": "/album-name-generator",
+      "destination": "/generators/album-name-generator",
+      "permanent": true
+    },
+    {
+      "source": "/discord-name-generator",
+      "destination": "/generators/discord-name-generator",
+      "permanent": true
+    },
+    {
+      "source": "/domain-name-generator",
+      "destination": "/generators/domain-name-generator",
+      "permanent": true
+    },
+    {
+      "source": "/shop-name-generator",
+      "destination": "/generators/shop-name-generator",
+      "permanent": true
+    },
+    {
+      "source": "/store-name-generator",
+      "destination": "/generators/store-name-generator",
+      "permanent": true
+    },
+    {
+      "source": "/company-slogan-generator",
+      "destination": "/generators/company-slogan-generator",
+      "permanent": true
+    },
+    {
+      "source": "/business-slogan-generator",
+      "destination": "/generators/business-slogan-generator",
+      "permanent": true
+    },
+    {
+      "source": "/website-name-generator",
+      "destination": "/generators/website-name-generator",
+      "permanent": true
+    },
+    {
+      "source": "/youtube-title-generator",
+      "destination": "/generators/youtube-title-generator",
+      "permanent": true
+    },
+    {
+      "source": "/pun-generator",
+      "destination": "/generators/pun-generator",
+      "permanent": true
+    },
+    {
+      "source": "/lyric-generator",
+      "destination": "/generators/lyric-generator",
+      "permanent": true
+    },
+    {
+      "source": "/diet-plan-generator",
+      "destination": "/generators/diet-plan-generator",
+      "permanent": true
+    },
+    {
+      "source": "/motivational-quote-generator",
+      "destination": "/generators/motivational-quote-generator",
+      "permanent": true
+    },
+    {
+      "source": "/linkedin-summary-generator",
+      "destination": "/generators/linkedin-summary-generator",
+      "permanent": true
+    },
+    {
+      "source": "/cafe-name-generator",
+      "destination": "/generators/cafe-name-generator",
+      "permanent": true
+    },
+    {
+      "source": "/twitch-username-generator",
+      "destination": "/generators/twitch-username-generator",
+      "permanent": true
+    },
+    {
+      "source": "/xbox-gamertag-generator",
+      "destination": "/generators/xbox-gamertag-generator",
+      "permanent": true
+    },
+    {
+      "source": "/roblox-username-generator",
+      "destination": "/generators/roblox-username-generator",
+      "permanent": true
+    },
+    {
+      "source": "/fortnite-name-generator",
+      "destination": "/generators/fortnite-name-generator",
+      "permanent": true
+    },
+    {
+      "source": "/call-of-duty-name-generator",
+      "destination": "/generators/call-of-duty-name-generator",
+      "permanent": true
+    },
+    {
+      "source": "/pubg-name-generator",
+      "destination": "/generators/pubg-name-generator",
+      "permanent": true
+    },
+    {
+      "source": "/powerball-generator",
+      "destination": "/generators/powerball-generator",
+      "permanent": true
+    },
+    {
+      "source": "/mega-millions-generator",
+      "destination": "/generators/mega-millions-generator",
+      "permanent": true
+    },
+    {
+      "source": "/pick-5-generator",
+      "destination": "/generators/pick-5-generator",
+      "permanent": true
+    },
+    {
+      "source": "/fantasy-5-generator",
+      "destination": "/generators/fantasy-5-generator",
+      "permanent": true
+    },
+    {
+      "source": "/roblox-password-generator",
+      "destination": "/generators/roblox-password-generator",
+      "permanent": true
+    },
+    {
+      "source": "/pet-name-generator",
+      "destination": "/generators/pet-name-generator",
+      "permanent": true
+    },
+    {
+      "source": "/cool-name-generator",
+      "destination": "/generators/cool-name-generator",
+      "permanent": true
+    },
+    {
+      "source": "/funny-name-generator",
+      "destination": "/generators/funny-name-generator",
+      "permanent": true
+    },
+    {
+      "source": "/fake-name-generator",
+      "destination": "/generators/fake-name-generator",
+      "permanent": true
+    },
+    {
+      "source": "/playlist-name-generator",
+      "destination": "/generators/playlist-name-generator",
+      "permanent": true
+    },
+    {
+      "source": "/movie-title-generator",
+      "destination": "/generators/movie-title-generator",
+      "permanent": true
+    },
+    {
+      "source": "/film-name-generator",
+      "destination": "/generators/film-name-generator",
+      "permanent": true
+    },
+    {
+      "source": "/dj-name-generator",
+      "destination": "/generators/dj-name-generator",
+      "permanent": true
+    },
+    {
+      "source": "/artist-name-generator",
+      "destination": "/generators/artist-name-generator",
+      "permanent": true
+    },
+    {
+      "source": "/stage-name-generator",
+      "destination": "/generators/stage-name-generator",
+      "permanent": true
+    },
+    {
+      "source": "/bio-generator",
+      "destination": "/generators/bio-generator",
+      "permanent": true
+    },
+    {
+      "source": "/inspirational-quote-generator",
+      "destination": "/generators/inspirational-quote-generator",
+      "permanent": true
+    },
+    {
+      "source": "/slogan-maker",
+      "destination": "/generators/slogan-maker",
+      "permanent": true
+    },
+    {
+      "source": "/tagline-generator",
+      "destination": "/generators/tagline-generator",
+      "permanent": true
+    },
+    {
+      "source": "/instagram-bio-generator",
+      "destination": "/generators/instagram-bio-generator",
+      "permanent": true
+    },
+    {
+      "source": "/facebook-post-generator",
+      "destination": "/generators/facebook-post-generator",
+      "permanent": true
+    },
+    {
+      "source": "/tiktok-hashtag-generator",
+      "destination": "/generators/tiktok-hashtag-generator",
+      "permanent": true
+    },
+    {
+      "source": "/meta-description-generator",
+      "destination": "/generators/meta-description-generator",
+      "permanent": true
+    },
+    {
+      "source": "/keyword-generator",
+      "destination": "/generators/keyword-generator",
+      "permanent": true
+    },
+    {
+      "source": "/logo-name-generator",
+      "destination": "/generators/logo-name-generator",
+      "permanent": true
+    },
+    {
+      "source": "/game-name-generator",
+      "destination": "/generators/game-name-generator",
+      "permanent": true
+    },
+    {
+      "source": "/guild-name-generator",
+      "destination": "/generators/guild-name-generator",
+      "permanent": true
+    },
+    {
+      "source": "/clan-name-generator",
+      "destination": "/generators/clan-name-generator",
+      "permanent": true
+    },
+    {
+      "source": "/superhero-name-generator",
+      "destination": "/generators/superhero-name-generator",
+      "permanent": true
+    },
+    {
+      "source": "/dnd-name-generator",
+      "destination": "/generators/dnd-name-generator",
+      "permanent": true
+    },
+    {
+      "source": "/rapper-name-generator",
+      "destination": "/generators/rapper-name-generator",
+      "permanent": true
+    },
+    {
+      "source": "/sci-fi-name-generator",
+      "destination": "/generators/sci-fi-name-generator",
+      "permanent": true
+    },
+    {
+      "source": "/villain-name-generator",
+      "destination": "/generators/villain-name-generator",
+      "permanent": true
+    },
+    {
+      "source": "/rpg-name-generator",
+      "destination": "/generators/rpg-name-generator",
+      "permanent": true
+    },
+    {
+      "source": "/anime-name-generator",
+      "destination": "/generators/anime-name-generator",
+      "permanent": true
+    },
+    {
+      "source": "/sports-team-name-generator",
+      "destination": "/generators/sports-team-name-generator",
+      "permanent": true
+    },
+    {
+      "source": "/fantasy-football-name-generator",
+      "destination": "/generators/fantasy-football-name-generator",
+      "permanent": true
+    },
+    {
+      "source": "/secure-password-generator",
+      "destination": "/generators/secure-password-generator",
+      "permanent": true
+    },
+    {
+      "source": "/random-letter-generator",
+      "destination": "/generators/random-letter-generator",
+      "permanent": true
+    },
+    {
+      "source": "/random-color-generator",
+      "destination": "/generators/random-color-generator",
+      "permanent": true
+    },
+    {
+      "source": "/random-date-generator",
+      "destination": "/generators/random-date-generator",
+      "permanent": true
+    },
+    {
+      "source": "/random-time-generator",
+      "destination": "/generators/random-time-generator",
+      "permanent": true
+    },
+    {
+      "source": "/fake-email-generator",
+      "destination": "/generators/fake-email-generator",
+      "permanent": true
+    },
+    {
+      "source": "/meme-text-generator",
+      "destination": "/generators/meme-text-generator",
+      "permanent": true
+    },
+    {
+      "source": "/meme-caption-generator",
+      "destination": "/generators/meme-caption-generator",
+      "permanent": true
+    },
+    {
+      "source": "/roast-generator",
+      "destination": "/generators/roast-generator",
+      "permanent": true
+    },
+    {
+      "source": "/comeback-generator",
+      "destination": "/generators/comeback-generator",
+      "permanent": true
+    },
+    {
+      "source": "/cocktail-name-generator",
+      "destination": "/generators/cocktail-name-generator",
+      "permanent": true
     }
-    // Add more as needed...
   ]
 }
