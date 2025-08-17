@@ -1,0 +1,80 @@
+{
+  "redirects": [
+    {
+      "source": "/business-name-generator",
+      "destination": "/generators/business-name-generator",
+      "permanent": true
+    },
+    {
+      "source": "/domain-name-generator",
+      "destination": "/generators/domain-name-generator",
+      "permanent": true
+    },
+    {
+      "source": "/username-generator",
+      "destination": "/generators/username-generator",
+      "permanent": true
+    },
+    {
+      "source": "/fantasy-name-generator",
+      "destination": "/generators/fantasy-name-generator",
+      "permanent": true
+    },
+    {
+      "source": "/random-name-generator",
+      "destination": "/generators/random-name-generator",
+      "permanent": true
+    },
+    {
+      "source": "/book-title-generator",
+      "destination": "/generators/book-title-generator",
+      "permanent": true
+    },
+    {
+      "source": "/slogan-generator",
+      "destination": "/generators/slogan-generator",
+      "permanent": true
+    },
+    {
+      "source": "/hashtag-generator",
+      "destination": "/generators/hashtag-generator",
+      "permanent": true
+    },
+    {
+      "source": "/company-name-generator",
+      "destination": "/generators/company-name-generator",
+      "permanent": true
+    },
+    {
+      "source": "/band-name-generator",
+      "destination": "/generators/band-name-generator",
+      "permanent": true
+    },
+    {
+      "source": "/character-name-generator",
+      "destination": "/generators/character-name-generator",
+      "permanent": true
+    },
+    {
+      "source": "/random-password-generator",
+      "destination": "/generators/random-password-generator",
+      "permanent": true
+    },
+    {
+      "source": "/cover-letter-generator",
+      "destination": "/generators/cover-letter-generator",
+      "permanent": true
+    },
+    {
+      "source": "/brand-name-generator",
+      "destination": "/generators/brand-name-generator",
+      "permanent": true
+    },
+    {
+      "source": "/team-name-generator",
+      "destination": "/generators/team-name-generator",
+      "permanent": true
+    }
+    // Add more as needed...
+  ]
+}
